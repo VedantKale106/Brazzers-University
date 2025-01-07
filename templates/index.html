@@ -21,6 +21,7 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#faculty">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
                     <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
@@ -271,12 +272,24 @@
                         <div class="mb-3">
                             <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        <button type="submit" id="contact-btn" class="btn btn-primary w-100">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    
+    <audio id="audio-player" src="/static/sounds/audio.mp3"></audio>
+    
+    <script>
+        document.getElementById("contact-btn").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent form submission
+            const audio = document.getElementById("audio-player");
+            audio.play();
+            alert("Thank you for contacting us!");
+        });
+    </script>
+    
 
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">

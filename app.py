@@ -12,13 +12,28 @@ def home():
         },
         {
             'name': 'Prof. Johnny Sins',
-            'position': 'Head of Plumbing Engineering',
+            'position': 'Director of Plumbing Department',
             'image': '/static/images/johnny.jpg'
         },
         {
             'name': 'Dr. Sunny Leone',
-            'position': 'Indian Academic Coordinator',
+            'position': 'Academic Coordinator',
             'image': '/static/images/sunny.jpg'
+        },
+        {
+            'name': 'Dr. Jordi El Nino',
+            'position': 'Student Representative',
+            'image': '/static/images/jordy.jpg'
+        },
+        {
+            'name': 'Prof. Sudipa',
+            'position': 'Head of Desi Department',
+            'image': '/static/images/sudipa.webp'
+        },
+        {
+            'name': 'Dr. Lana Rhoades',
+            'position': 'Dean of Stepfantasy Foundation',
+            'image': '/static/images/lana.jpg'
         }
     ]
     
