@@ -103,3 +103,21 @@ body {
         padding-right: 15px;
     }
 }
+
+.card {
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+@media (max-width: 768px) {
+    .stats-item {
+        margin-bottom: 1rem;
+    }
+}
+
+.card-img-top {
+    width: 100%; /* Ensures it fills the card width */
+    height: 200px; /* Sets a consistent height */
+    object-fit: cover; /* Ensures the image fits without distortion */
+}
