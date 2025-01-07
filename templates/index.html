@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brazzers University</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Brazzers University</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faculty">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <h1 data-aos="fade-up">Welcome to Brazzers University</h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Shaping Tomorrow's Stars Today</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-up">About Us</h2>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <p>Brazzers University is a premier institution dedicated to excellence in education and research. Founded with a vision to nurture talent and foster innovation, we provide world-class facilities and opportunities for our students.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <p>Our commitment to academic excellence, research, and holistic development makes us one of the leading universities in the region. Join us in our journey towards creating a better future through education.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Section -->
+<section id="faculty" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4" data-aos="fade-up">Our Faculty</h2>
+        <div id="facultyCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for i in range(0, faculty|length, 3) %}
+                <div class="carousel-item {% if i == 0 %}active{% endif %}">
+                    <div class="row">
+                        {% for member in faculty[i:i+3] %}
+                        <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                            <img src="{{ member.image }}" 
+                                class="rounded-circle mb-3" 
+                                alt="{{ member.name }}" 
+                                style="width: 300px; height: 300px; object-fit: cover;">
+                            <h4>{{ member.name }}</h4>
+                            <p>{{ member.position }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#facultyCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#facultyCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-up">Gallery</h2>
+            <div class="row g-4">
+                {% for item in gallery %}
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="{{ loop.index * 100 }}">
+                    <div class="gallery-item" style="position: relative; overflow: hidden;">
+                        <img src="{{ item.image }}" 
+                             class="img-fluid" 
+                             alt="{{ item.caption }}" 
+                             style="width: 100%; height: 350px; object-fit: cover;">
+                        <div class="gallery-caption" 
+                             style="position: absolute; bottom: 0; background: rgba(0, 0, 0, 0.5); color: #fff; width: 100%; text-align: center; padding: 5px;">
+                            {{ item.caption }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-up">Contact Us</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <form data-aos="fade-up">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Size">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Brazzers University. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
